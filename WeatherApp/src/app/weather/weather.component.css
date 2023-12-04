@@ -3,3 +3,8 @@
     flex-direction: column;
     align-items: center;
 }
+
+.imagePath {
+    background-repeat: no-repeat;
+    background-size: cover;
+}

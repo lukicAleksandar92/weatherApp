@@ -1,15 +1,15 @@
-<div class="my-container">  
-  <div class="card text-white bg-primary m-5" style="max-width: 18rem;">
+<div class="my-container imagePath" style="background-image: url('{{imagePath}}');">  
+  <div class="card text-white bg-primary m-5" >
     <div class="card-header text-center">
-      <h2>Belgrade</h2>
-      <p>weather image</p>
-    </div>
+      <h2>{{city}}</h2>
+      <p><img src="{{iconURL}}" alt="{{summary}}"></p>
+  </div>
     <div class="card-body">
-      <p class="card-text">Summary: Rainy</p>
-      <p class="card-text">Temperature: 20°C</p>
-      <p class="card-text">Feels like: 18°C</p>
-      <p class="card-text">Pressure: 1024 hPa</p>
-      <p class="card-text">Humidity: 50%</p>
+      <p class="card-text">Summary: {{summary}}</p>
+      <p class="card-text">Temperature: {{temperature}} °{{units=='metric' ? 'C' : 'F'}}</p>
+      <p class="card-text">Feels like: {{feelsLikeTemp}} °{{units=='metric' ? 'C' : 'F'}}</p>
+      <p class="card-text">Pressure: {{pressure}} hPa</p>
+      <p class="card-text">Humidity: {{humidity}} %</p>
     </div>
   </div>
 </div>
