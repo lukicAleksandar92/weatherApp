@@ -8,10 +8,11 @@ import { environment } from 'src/environments/environment';
 export class WeatherService {
 
   constructor(private http: HttpClient) { 
-    console.log('API Key:', this.apiKey);
+
   }
 
   apiKey: string = environment.apiKey;
+  
 
   getweather(city: string, units: string) {
 
