@@ -1,15 +1,50 @@
-<div class="my-container imagePath" style="background-image: url('{{imagePath}}');">  
-  <div class="card text-white bg-primary m-5" >
-    <div class="card-header text-center">
-      <h2>{{city}}</h2>
-      <p><img src="{{iconURL}}" alt="{{summary}}"></p>
-  </div>
-    <div class="card-body">
-      <p class="card-text">Summary: {{summary}}</p>
-      <p class="card-text">Temperature: {{temperature}} °{{units=='metric' ? 'C' : 'F'}}</p>
-      <p class="card-text">Feels like: {{feelsLikeTemp}} °{{units=='metric' ? 'C' : 'F'}}</p>
-      <p class="card-text">Pressure: {{pressure}} hPa</p>
-      <p class="card-text">Humidity: {{humidity}} %</p>
+<div class="my-container bg-primary container-fluid">
+  <form #form="ngForm" (submit)="onSubmit()" class="d-flex d-lg-flex mt-2">
+    <input
+      class="form-control"
+      type="text"
+      name="cityName"
+      placeholder="Enter city name..."
+      style="border-radius: 20px 0 0 20px"
+      [(ngModel)]="city"
+      (keyup.enter)="onSubmit()"
+    />
+    <button class="btn btn-dark" type="submit" style="border-radius: 0 20px 20px 0">Search</button>
+  </form>
+  <div class="card m-2">
+    <div class="content text-center">
+      <img
+        src="{{ imagePath }}"
+        class="weather_image"
+        alt="weather_image"
+        style="width: 17rem; height: 8rem"
+      />
+      <div class="card-header">
+        <h2>{{ cityName }} ({{country}})</h2>
+        <p class="card-text">{{ currentDate }}</p><p>{{currentTime}}</p>
+        <!-- <p><img src="{{ iconURL }}" alt="{{ summary }}" /></p> -->
+        <h3>{{ temperature }} °{{ units == "metric" ? "C" : "F" }}</h3>
+        <h4>{{ summary }}</h4>
+      </div>
+      <div class="card-title"><u>More Info ↓</u></div>
+      <div class="card-body">
+        <p class="card-text">
+          <img class="icon" src="../../assets/wind.png" alt="wind" /> Wind
+          speed: {{ wind }} {{ units == "metric" ? "m/s" : "miles/h" }}
+        </p>
+        <p class="card-text">
+          <img class="icon" src="../../assets/feelslike.png" alt="feelslike" />
+          Feels like: {{ feelsLikeTemp }} °{{ units == "metric" ? "C" : "F" }}
+        </p>
+        <p class="card-text">
+          <img class="icon" src="../../assets/pressure.png" alt="wind" />
+          Pressure: {{ pressure }} hPa
+        </p>
+        <p class="card-text">
+          <img class="icon" src="../../assets/humidity.png" alt="humidity" />
+          Humidity: {{ humidity }} %
+        </p>
+      </div>
     </div>
   </div>
 </div>
