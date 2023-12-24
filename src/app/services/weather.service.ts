@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,8 @@ export class WeatherService {
 
   }
 
-  apiKey: string = environment.apiKey;
+  apiKey: string = process.env['OPENWEATHER_API_KEY'] || '';
+
   
 
   getweather(city: string, units: string) {
